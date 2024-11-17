@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For Abhi ❤️</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playball&family=Montserrat&family=Merienda&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Merienda', cursive;
+            color: white;
+            text-align: center;
+        }
+        h1 {
+            color: pink;
+            margin-top: 50px;
+        }
+        a {
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+            border: 2px solid white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        a.active {
+            background-color: pink;
+            color: black;
+        }
+        .baseCard {
+            display: none;
+            margin: 50px auto;
+            padding: 20px;
+            max-width: 600px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px white;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            text-align: left;
+        }
+        .textBlock {
+            margin: 20px;
+        }
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: pink;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Entrance Animation -->
+    <h1>💗 Love 💗</h1>
+    <p>Click the heart to unlock something special!</p>
+    <a href="#" id="unlock">❤️ Heart</a>
+    <script>
+        $(document).ready(function(){
+            $('#unlock').click(function(){
+                $(this).toggleClass('active');
+                $('.baseCard').fadeIn(1000);
+            });
+        });
+    </script>
+
+    <!-- Heartfelt Message Card -->
+    <div class="baseCard">
+        <h2>For Abhi ❤️</h2>
+        <div class="textBlock">
+            <article>
+                As I sit alone, surrounded by shadows of our memories, my heart aches with every passing moment. The distance between us, once bridged by love, now feels like an insurmountable ocean. I miss the late-night calls, the whispered promises, and the sweet nothings we shared across the miles.<br><br>
+                
+                I remember our silly jokes, the laughter, and the adventures we planned together. Your voice, once a constant comfort, now echoes in my mind, a bittersweet reminder of what we've lost. The weight of my mistakes crushes me, and I'm haunted by the thought of losing you forever.<br><br>
+                
+                Your absence has turned my world into a desolate landscape, where every sunrise reminds me of your absence. I'm tormented by the fear that I'll never again feel your love. The distance that once brought us closer now feels like a chasm.<br><br>
+                
+                Abhi, I know I've hurt you deeply, and for that, I'm truly sorry. I regret the fake pictures, the lies, and the trust I broke. Please don't leave me midway. Give me another chance to prove that my love for you is stronger than my flaws. Scold me, correct me, shut me up, but just don't leave.<br><br>
+                
+                I know I understand for you it's not easy, but why - if you had loved me - wasn't my love enough? Wasn't our connection strong enough to overcome my mistakes? I know I don't deserve it, but I crave your forgiveness and your love.<br><br>
+                
+                I know it's worthless, but I want to try. I don't know why, but giving up on you is unimaginable. The thought of living without you is unbearable. My heart refuses to let go, even when reason says it's futile.<br><br>
+                
+                I promise to rebuild our love, brick by brick, and create a foundation that's unshakeable. I'll work on healing and growing, so I can be the partner you deserve. I'll cherish our moments, no matter the distance. I'll be patient, understanding, and supportive.<br><br>
+                
+                Come back to me not possible lol. I'll hold onto the memories of our laughter, our whispers, and our forever promises.<br><br>
+                
+                Without you, life has lost its meaning, and every breath feels like a struggle. My heart beats for you; my soul longs for your presence. I love you more with each passing day, and I'm willing to do whatever it takes to make it right.<br><br>
+                
+                I'll hold on to the hope that you'll give me another chance, that you'll see the sincerity in my words, and that our love will conquer all. I love you now, I always did, and forever.<br><br>
+                
+                These aren't just words, these are my feelings. You don't know how many things I wrote for you, turned you into poetry.<br><br>
+                
+                <em>- Jeni</em>
+            </article>
+        </div>
+    </div>
+</body>
+</html>    
