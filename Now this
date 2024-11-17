@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Romantic Shimmering Hearts</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #2b1055, #7597de, #ffbfd8);
+      font-family: 'Arial', sans-serif;
+    }
+    canvas {
+      display: block;
+    }
+    #poem {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      font-size: 24px;
+      line-height: 1.5;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      width: 80%;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="heartCanvas"></canvas>
+  <div id="poem">
+    <p>Something's missing, an empty space<br>
+      A feeling that's hard to replace<br>
+      Memories of laughter, tears, and fun<br>
+      Remind me of what we've undone</p>
+    <p>Life's different now, not the same<br>
+      A part of me feels lost in the game<br>
+      I'm searching for a familiar face<br>
+      A love that time and space won't erase</p>
+    <p>If paths cross again, maybe we'll see<br>
+      What could've been, what's meant to be<br>
+      No regrets, just a second chance<br>
+      To rediscover love's gentle dance</p>
+  </div>
+  <script>
+    const canvas = document.getElementById("heartCanvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const hearts = [];
+    const maxHearts = 70;
+
+    function createHeart() {
+      const size = Math.random() * 20 + 10; // Heart size
+      return {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size,
+        speedY: Math.random() * 1.5 + 0.5, // Vertical speed
+        speedX: Math.random() * 1 - 0.5, // Horizontal drift
+        opacity: Math.random() * 0.6 + 0.4, // Transparency
+        sparkleTimer: Math.floor(Math.random() * 50), // Delay for glitter
+        hue: Math.random() * 60 + 300 // Pink and purple hues
+      };
+    }
+
+    function drawHeart(x, y, size, opacity, hue) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.globalAlpha = opacity;
+      ctx.fillStyle = `hsl(${hue}, 70%, 80%)`; // Soft pastel color
+      ctx.beginPath();
+      ctx.moveTo(0, -size / 2);
+      ctx.arc(-size / 3, -size / 3, size / 3, Math.PI, 0); // Left curve
+      ctx.arc(size / 3, -size / 3, size / 3, Math.PI, 0); // Right curve
+      ctx.lineTo(0, size / 2);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function drawSparkle(x, y, size) {
+      const sparkleSize = Math.random() * (size / 4) + 1;
+      ctx.globalAlpha = Math.random() * 0.7 + 0.3;
+      ctx.fillStyle = "white";
+      ctx.beginPath();
+      ctx.arc(x, y, sparkleSize, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+
+    function animateHearts() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      if (hearts.length < maxHearts) {
+        hearts.push(createHeart());
+      }
+
+      hearts.forEach((heart, index) => {
+        drawHeart(heart.x, heart.y, heart.size, heart.opacity, heart.hue);
+
+        // Add glitter effect
+        if (heart.sparkleTimer === 0) {
+          drawSparkle(
+            heart.x + Math.random() * heart.size - heart.size / 2,
+            heart.y + Math.random() * heart.size - heart.size / 2,
+            heart.size
+          );
+          heart.sparkleTimer = Math.floor(Math.random() * 50);
+        } else {
+          heart.sparkleTimer -= 1;
+        }
+
+        // Move the hearts
+        heart.x += heart.speedX;
+        heart.y -= heart.speedY;
+
+        // Remove hearts that leave the screen
+        if (heart.y < -50 || heart.x < -50 || heart.x > canvas.width + 50) {
+          hearts.splice(index, 1);
+        }
+      });
+
+      requestAnimationFrame(animateHearts);
+    }
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    animateHearts();
+  </script>
+</body>
+
+</html>
